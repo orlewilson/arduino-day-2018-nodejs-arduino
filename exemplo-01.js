@@ -9,7 +9,6 @@
 // importando bibliotecas
 var http = require('http');
 
-
 // criando um servidor
 http.createServer(function (req, res) {
     
