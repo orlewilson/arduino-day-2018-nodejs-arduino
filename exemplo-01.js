@@ -1,3 +1,11 @@
+/*	Arduino Day Manaus 2018
+	Oficina:     Criando Coisas Inteligentes com NodeJS e Arduino
+	Facilitador: Prof. Orlewilson B. Maia
+	Autor:       Orlewilson B. Maia
+	Data:        31/03/2018
+	Descrição:   Criando uma aplicação em NodeJS (Hello World) 
+*/
+
 // importando bibliotecas
 var http = require('http');
 
