@@ -1,4 +1,5 @@
-/*	Arduino Day Manaus 2018
+/*
+  Arduino Day Manaus 2018
 	Oficina:     Criando Coisas Inteligentes com NodeJS e Arduino
 	Facilitador: Prof. Orlewilson B. Maia
 	Autor:       Orlewilson B. Maia
@@ -25,29 +26,39 @@ var board = new five.Board({port: "COM5"});
 // quando a placa estiver pronta, execute.
 board.on("ready", function() {  
    
-     
-   server.listen(80);
+  // servidor escutando na porta 8080
+  server.listen(8080);
 
-   // informando que utilizará Led e qual porta
-   var led = new five.Led(13);  
+  // mensagem no console
+  console.log('Sever running at http://localhost:8080/');
 
-app.get('/', function (req, res) {
-  res.sendFile(__dirname + '/exemplo-04-web.html');
-});
+  // informando que utilizará Led e qual porta
+  var led = new five.Led(13);  
 
-io.on('connection', function (socket) {
-  socket.on('ligar', function (data) {
-   
-    led.on();
-    socket.emit('respostaLed', 'ligado');
-
+  // informando a página HTML que será vista pelo usuário
+  app.get('/', function (req, res) {
+    res.sendFile(__dirname + '/exemplo-04-web.html');
   });
 
-  socket.on('desligar', function (data) {
-    led.off();
-    socket.emit('respostaLed', 'desligado');
-  });
-});
+  // quando alguém conectar com o servidor por meio de socket
+  io.on('connection', function (socket) {
+    
+    // quando for solicitado para ligar o LED
+    socket.on('ligar', function (data) {
+      // ligar LED
+      led.on();
 
+      // enviar resposta ao solicitante que o LED foi ligado
+      socket.emit('respostaLed', 'ligado');
+    });
+
+    // quando for solicitado para desligar o LED
+    socket.on('desligar', function (data) {
+      // desligar LED
+      led.off();
+
+      // enviar resposta ao solicitante que o LED foi desligado
+      socket.emit('respostaLed', 'desligado');
+    });
+  });
 }); 
-

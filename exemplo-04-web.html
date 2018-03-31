@@ -17,8 +17,8 @@
       
       <!-- script para comunicar com o servidor -->
       <script>
-         // criando socket
-         var socket = io('http://localhost');
+         // criando socket na porta 8080
+         var socket = io('http://localhost:8080');
          
          // aguarda alguma resposta do servidor
          socket.on('respostaLed', function (data) {
@@ -29,13 +29,13 @@
          // função para ligar LED
          function ligar(){
             // envia mensagem para ligar LED
-            socket.emit('ligar');
+            socket.emit('ligar','');
          }
 
          // função para desligar LED
          function desligar(){
             // envia mensagem para desligar LED
-            socket.emit('desligar');
+            socket.emit('desligar','');
          }
       </script>
 
