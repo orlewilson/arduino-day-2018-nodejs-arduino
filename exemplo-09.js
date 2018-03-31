@@ -4,7 +4,7 @@
 	Facilitador: Prof. Orlewilson B. Maia
 	Autor:       Orlewilson B. Maia
 	Data:        31/03/2018
-	Descrição:   Ler valor de sensor de lulz e mostrar em uma página web 
+	Descrição:   Ler valor de sensor de luz e mostrar em uma página web 
 */
 
 // importando bibliotecas
