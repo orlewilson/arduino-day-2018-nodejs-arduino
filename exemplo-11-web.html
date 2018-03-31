@@ -1,0 +1,45 @@
+<!--
+   Arduino Day Manaus 2018
+	Oficina:     Criando Coisas Inteligentes com NodeJS e Arduino
+	Facilitador: Prof. Orlewilson B. Maia
+	Autor:       Orlewilson B. Maia
+	Data:        31/03/2018
+	Descrição:   Ler valor de sensor de luz, ligar/desligar LED e mostrar em uma pagina web
+-->
+
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Exemplo 11 - Ler valor de sensor de luz, ligar/desligar LED e mostrar em uma pagina web</title>
+
+      <!-- importando bibliotecas -->
+      <script src="/socket.io/socket.io.js"></script>
+      
+      <!-- script para comunicar com o servidor -->
+      <script>
+         // criando socket na porta 8080
+         var socket = io('http://localhost:8080');
+         
+         // aguarda alguma resposta do sensor de luz do servidor
+         socket.on('respostaSensor', function (data) {
+
+            // atualiza na página web com o valor lido do sensor de luz
+            document.getElementById('valorSensor').innerHTML = data;
+         });
+
+         // aguarda alguma resposta do estado do LED do servidor
+         socket.on('respostaLed', function (data) {
+
+            // atualiza na página web com o valor lido do sensor de luz
+            document.getElementById('valorLed').innerHTML = data;
+         });
+
+      </script>
+
+   </head>
+   <body>
+      <h1>Exemplo 11 - Ler valor de sensor de luz, ligar/desligar LED e mostrar em uma pagina web</h1>
+      <p>Valor sensor de luz (LDR): <span id="valorSensor">não sei</span></p>
+      <p>Estado LED: <span id="valorLed">não sei</span></p>
+   </body>
+</html> 
