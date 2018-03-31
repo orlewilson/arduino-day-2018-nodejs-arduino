@@ -7,6 +7,8 @@
 */
 
 // importando bibliotecas
+// biblioteca para transferir dados por meio do protocolo HTTP
+
 var http = require('http');
 
 // criando um servidor
