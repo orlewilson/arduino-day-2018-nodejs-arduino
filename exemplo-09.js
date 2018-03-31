@@ -45,6 +45,7 @@ board.on("ready", function() {
     
     // se houver mudança de valor, mostrará no console o resultado
     sensorLuz.on('change', function(){
+      // envia resposta para a página web
       socket.emit('resposta', this.value.toFixed());
     });
   });
