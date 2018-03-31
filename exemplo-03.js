@@ -7,15 +7,17 @@
 */
 
 // importando bibliotecas
+// biblioteca para comunicar com o Arduino
 var five = require("johnny-five");  
 
 // informando a porta de comunicação
 var board = new five.Board({port: "COM5"});
 
-// quando a placa estiver prota, execute.
+// quando a placa estiver pronta, execute.
 board.on("ready", function() {  
    // placa pronta
    console.log("Ready!");  
+   
    // informando que utilizará Led e qual porta
    var led = new five.Led(13);  
    
